@@ -1,0 +1,43 @@
+<ion-content class="ion-padding">
+  <h1>
+    {{ 'Settings.title' | translate }}
+  </h1>
+  <ion-list>
+    <ion-item button="true" detail="true"
+      (click)="goToInfo()"
+    >
+      <ion-icon name="information-circle-outline" color="primary"></ion-icon>
+      <ion-label>{{'Settings.about' | translate }}</ion-label>
+    </ion-item>
+    <ion-item detail="true" (click)="showComponent.emit('faq')" button="true">
+      <ion-icon name="help-circle-outline" color="primary"></ion-icon>
+      <ion-label>{{'Settings.faq'| translate }}</ion-label>
+      <ion-icon slot="end" name="globe-outline"></ion-icon>
+    </ion-item>
+    <ion-item detail="true" (click)="showComponent.emit('privacy')" button="true">
+      <ion-icon name="shield-checkmark-outline" color="primary"></ion-icon>
+      <ion-label>{{'Settings.privacy'| translate }}</ion-label>
+      <ion-spinner *ngIf="loading_ === 2" size="small"></ion-spinner>
+      <ion-icon slot="end" name="globe-outline"></ion-icon>
+    </ion-item>
+    <ion-item 
+      detail="true" 
+      [disabled]="!exportEnabled" 
+      (click)="export.emit()"
+      *ngIf="!isAndroid"
+    >
+      <ion-icon name="download-outline" color="primary"></ion-icon>
+      <ion-label>{{'Settings.export'| translate }}</ion-label>
+    </ion-item>
+    <ion-item detail="true" href="mailto:support@drd.at">
+      <ion-icon name="chatbox-outline" color="primary"></ion-icon>
+      <ion-label>{{'Settings.feedback'| translate }}</ion-label>
+      <ion-icon slot="end" name="mail-outline"></ion-icon>
+    </ion-item>
+  </ion-list>
+  <div class="ion-text-center">
+    <ion-button (click)="dismiss.emit()" fill="outline" id="dismiss">
+      {{'done' | translate }}
+    </ion-button>
+  </div>
+</ion-content>

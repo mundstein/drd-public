@@ -1,0 +1,317 @@
+{
+	"Anamnesis": {
+		"infos": {
+			"bmi": "Mehr über den Body-Mass-Index"
+		},
+		"intros": {
+			"allergies": "Bitte trage alle deine Allergien und etwaige Unverträglichkeiten ein.",
+			"bodyData": "",
+			"illnesses": "Hier kannst du etwaige Vorerkrankungen bzw. chronische Krankheiten und Beschwerden eintragen.",
+			"medications": "",
+			"surgeries": ""
+		},
+		"labels": {
+			"age": "Alter",
+			"allergies": "Allergien",
+			"birthYear": "Geburtsjahr",
+			"bloodGroup": "Blutgruppe",
+			"heightCm": "Körpergröße in cm",
+			"illness": "Vorerkrankung",
+			"surgery": "Operation",
+			"medication": "Medikation",
+			"item": "Eintrag",
+			"weightKg": "Gewicht in kg"
+		},
+		"subtitles": {
+			"allergies": "Welche Allergien wurden bei dir diagnostiziert?",
+			"bodyData": "Was ist dein Gewicht, deine Körpergröße, deine Blutgruppe?",
+			"illnesses": "Welche Erkrankungen sind bereits bekannt?",
+			"medications": "Welche Medikamente nimmst Du derzeit ein?",
+			"surgeries": "Gab es operative Eingriffe in der Vergangenheit?"
+		},
+		"titles": {
+			"anamnesis": "Anamnese",
+			"allergies": "Allergien",
+			"bodyData": "Körpermesswerte",
+			"illnesses": "Vorerkrankungen",
+			"medications": "Medikamente",
+			"surgeries": "Operationen",
+			"acute": "Akute Krankheiten"
+		},
+		"shortTitles": {
+			"bodyData": "Messwerte"
+		},
+		"addItem": "{item} hinzufügen"
+	},
+	"Medication": {
+		"name": "Bezeichnung",
+		"dosis": "Dosierung",
+		"dateLabel": "Einnahme bis",
+		"date": "Einnahme bis"
+	},
+	"Checkup": {
+		"intro": "<p><strong>Vorsorgeuntersuchung</strong></p>Du kannst auch einen ausführlicheren Fragebogen zur Vorsorgeuntersuchung ausfüllen.",
+		"startButton": "Zum Fragebogen",
+		"title": "Vorsorgeuntersuchung",
+		"legend" : {
+			"title": "Legende:",
+			"notAnswered": "= Keine Antwort",
+			"yes" : "= Ja",
+			"no" : "= Nein",
+			"dontKnow": "= Ich weiß es nicht"
+		},
+		"form": {
+			"title": "Vorsorge&shy;untersuchung Fragebogen",
+			"intro": "Wenn du diesen Fragebogen ausfüllst, kannst du die online-Konsultation mit einem drd-Hausarzt noch effektiver machen.",
+			"q1": "Ich habe Probleme beim Sehen (trotz Tragens einer Brille oder von Kontaktlinsen).",
+			"q2": "Ich brauche starke Brillen oder Kontaktlinsen, um in der Ferne sehen zu können.",
+			"q3": "Ich habe einen Blutsverwandten ersten Grades (Elternteil, Bruder, Schwester oder Kind) mit grünem Star.",
+			"q4": "(ab 65 Jahre:) Mein Sehvermögen wird nicht regelmäßig überprüft.",
+			"q5": "Mir wurde gesagt, dass ich Diabetes (Zucker) habe (kein Schwangerschaftsdiabetes).",
+			"q6": "Ich bin wegen Diabetes in Behandlung.",
+			"q7": "Ich habe einen Blutsverwandten mit Diabetes.",
+			"q8": "(Frauen:) Während der Schwangerschaft hat man mir gesagt, dass ich Diabetes habe.",
+			"q9": "Ich habe einen Elternteil, einen Bruder oder eine Schwester (unter 60 Jahre) der / die ein Herzleiden haben oder der / die daran starben.",
+			"q10": "Ich habe / hatte einen Blutsverwandten mit hohen Cholesterinwerten.",
+			"q11": "Ich habe bereits einen Herzinfarkt erlitten bzw. wurde mir gesagt, dass ich an einer Durchblutungsstörung der Herzkranzgefäße leide",
+			"q12": "Ich rauche {count, plural, =0{keine Zigaretten} one{eine Zigarette pro Tag} other {# Zigaretten pro Tag}}.",
+			"q12Unknown": "Ich rauche (keine Angabe) Zigaretten pro Tag.",
+			"cigarettesLabel": "Anzahl der Zigaretten",
+			"cigarettesPlaceholder": "pro Tag",
+			"q13": "Ich habe Bluthochdruck (d. h. einen Blutdruck über 140 / 90) und / oder nehme derzeit Medikamente gegen Bluthochdruck ein.",
+			"q14": "(ab 65 Jahre:) Ich habe Probleme beim Hören.",
+			"q15": "In den letzten 2 Wochen nahm ich Schmerzmittel (Aspirin oder Ähnliches).",
+			"q16": "In den letzten 2 Wochen nahm ich Beruhigungsmittel (Valium oder Ähnliches).",
+			"q17": "In den letzten 2 Wochen nahm ich Schlafmittel.",
+			"q18": "Wie oft trinken Sie Alkohol?",
+			"q19": "Blutet Ihr Zahnfleisch beim Zähneputzen oder beim Essen harter Nahrung, oder fühlt sich Ihr Zahnfleisch geschwollen oder empfindlich an?",
+			"q20": "Hat sich Ihr Zahnfleisch zurückgezogen? Glauben Sie, dass Ihre Zähne scheinbar länger geworden sind, oder sind die Zwischenräume zwischen Ihren Zähnen größer geworden?",
+			"q21": "Falls Sie eine Teilprothese tragen, hat sich die Passform verändert?",
+			"q22": "Haben Sie Probleme mit Mundgeruch?",
+			"acuteQuestion": "Während der letzten 2 Monate hatte / habe ich folgende akute Erkrankungen:",
+			"q23": "Erkältung",
+			"q24": "Grippe",
+			"q25": "akute Bronchitis",
+			"q26": "Lungenentzündung",
+			"q27": "Infektion der Nieren oder des Harntraktes",
+			"q28": "Durchfall",
+			"q29": "Erbrechen",
+			"q30": "Magengeschwür",
+			"acuteList": "Bitte aktualisieren Sie weitere eventuelle akute Erkrankungen.",
+			"acuteButton": "Aktualisieren",
+			"chronicQuestion": "Haben oder hatten Sie folgende chronische Krankheiten:",
+			"q31": "Schlaganfall / Gehirnblutung",
+			"q32": "Krebs",
+			"q33": "Depression",
+			"q34": "Migräne oder regelmäßige Kopfschmerzen",
+			"q35": "chronische Atemwegserkrankung (Asthma, Atemnot, Emphysem, chronischer Husten)",
+			"q36": "chronisches Ekzem",
+			"q37": "Schwindelanfälle mit Stürzen",
+			"q38": "Darmerkrankungen",
+			"q39": "Inkontinenz (Blasenschwäche)",
+			"q40": "chronische Rückenschmerzen",
+			"q41": "Abnutzung der Gelenke",
+			"q42": "chronische Entzündung der Gelenke (Arthritis)",
+			"chronicList": "Bitte aktualisieren Sie weitere eventuelle chronische Erkrankungen im Anamnese-Bereich.",
+			"toAnamnesis": "Zur Anmnese",
+			"surgeriesList": "Bitte zählen sie Operationen auf, die sie gehabt haben.",
+			"q43": "Ich habe eine Blutsverwandte, die Brustkrebs hat/hatte.",
+			"q44": "Ich habe / hatte eine Verwandte oder einen Verwandten ersten Grades (Elternteil, Bruder, Schwester oder Kind), der/die Hautkrebs (Melanom) hat / hatte.",
+			"q45": "Ich habe / hatte eine Verwandte oder einen Verwandten ersten Grades (Elternteil, Bruder, Schwester oder Kind), der/die irgendeine Form von Krebs (Lunge, Dickdarm, Blut, Prostata oder Gebärmutter) hat/hatte.",
+			"whichRelative": "Wenn ja, welcher Verwandte ersten Grades (Elternteil, Bruder, Schwester oder Kind)?",
+			"relativePlaceholder": "Verwandte(r)",
+			"whichCancer": "Wenn ja, welche Krebsart?",
+			"cancerPlaceholder": "Krebsart",
+			"updated": "Zuletzt aktualisiert",
+			"updateViaAnamnesis": "Bitte geben Sie Körpergröße und Gewicht in der Anamnese an."
+		},
+		"answer" : {
+			"yes": "Ja",
+			"no": "Nein",
+			"dontKnow": "Weiß nicht",
+			"notAnswered": "Keine Antwort",
+			"never": "Nie",
+			"monthly": "Einmal im Monat oder seltener",
+			"weekly": "Zwei- bis dreimal pro Woche",
+			"daily": "Viermal pro Woche oder öfter"
+		},
+		"export": {
+			"message": "Dieses Formular kann als PDF-Dokument exportiert werden.",
+			"button": "Exportieren"
+		},
+		"labels": {
+			"acuteIllnesses": "Akute Krankheiten"
+		}
+	},
+	"InfoPage": {
+		"heading": "Warum Gesundheitsdaten so wichtig sind",
+		"para1": "Genaue Information über den Zustand eines Patienten oder einer Patientin ist die Grundlage, auf der das medizinische Personal eine belastbare Diagnose stellen kann. Diese App hilft Dir, die wichtigsten Basisdaten festzuhalten, um sie beim nächsten Arztbesuch zu parat zu haben.",
+		"para2": "<em>drd doctors online</em> ist ein telemedizinisches Unternehmen mit vielen Services für deine Gesundheit:",
+		"startButton": "Loslegen",
+		"title": "Informationen",
+		"para3": "Du kannst die Daten deiner Anamnese bequem per Code exportieren.",
+		"para4": "Was ist eigentlich eine “Anamnese”?",
+		"android": {
+			"para1": "Du kannst Deine Gesundheitsdaten in dieser App erfassen, um sie später auf unserer Plattform <a href=\"https://web.drd.at\">web.drd.at</a> verwenden zu können."
+		},
+		"wikiLink":"https://de.m.wikipedia.org/wiki/Anamnese",
+		"wikiButton": "Wikipedia",
+		"feature1": "Ärztliche Beratung mit dem drd-Hausarzt per Video-Chat",
+		"feature2": "Patientenakte: Überblick über alle medizinischen Dokumente",
+		"feature3": "Arztsuche: Kontakt zu allen nieder&shy;gelassenen Ärzten in Österreich",
+		"showMore": "Mehr dazu",
+		"exportButton": "Exportieren"
+	},
+	"DoctorsPage": {
+		"title": "Ärzte",
+		"para1": "Es ist besonders wichtig, den richtigen Arzt oder Ärztin für den gegebenen Anlass zu finden. drd doctors online bietet eine umfassende Artzsuche, um genau die richtige medizinische Hilfe in deiner Umgebung zu lokalisieren.",
+		"para2": "Doch manchmal ist es auch entscheidend, so schnell wie möglich mit einem Arzt oder einer Ärztin zu sprechen, ohne Anreise und Wartezeit. drd doctors online bietet dir diese Möglichkeit.",
+		"para3": "Vor der Konsultation ist es vorteilhaft, wenn man die Anamnese vollständig ausgefüllt hat.",
+		"android": {
+			"para1": "Du kannst dein Profil in der Web-App von drd online doctors einrichten, oder dich einfach dort einloggen, wenn Du schon ein Profil hast.",
+			"para2": "Danach kannst du die Daten, die du in der Anamnese gespeichert hast, einfach mithilfe eines PIN-Codes übertragen. Die PIN findest du auf der Anamnese-Seite im Bereich der Dokumente in der drd-App.",
+			"haveProfileLabel": "Ja, ich habe bereits ein Profil."
+		},
+		"toAnamnesis": "Zur Anamnese",
+		"completeSwitchLabel": "Ja, ich habe meine Gesundheitsdaten eingegeben.",
+		"howto": "Wie komme ich zu einem Arzt?",
+		"getToDoctor": "<strong>drd doctors online</strong> ist während der üblichen Öffnungszeiten <a href=\"https://web.drd.at/\" target=\"_blank\">online</a> verfügbar.",
+		"enterCode": "Bitte die PIN zum Hochladen bitte hier eingeben.",
+		"codeExplain": "Du findest die PIN auf der drd Plattform im Bereich Dokumente unter “Anamnese”.",
+		"profileSwitchLabel": "Ja, ich habe bereits ein Profil."
+	},
+	"SearchPage": {
+		"title": "Arztsuche Österreich",
+		"search": {
+			"placeholder": "Suche",
+			"searching": "Suche läuft...",
+			"noResults": "Keine Suchergebnisse"
+		},
+		"info": {
+			"title": "Arztsuche ohne Werbung",
+			"intro": "Die <strong>drd Arztsuche</strong> ist einzigartig in Österreich: hier kannst Du im aktuellen Verzeichnis aller niedergelassenen Ärzte des Landes den passenden Facharzt oder Fachärztin finden und erhälst alle wichtigen Informationen.",
+			"searchTips": "Du kannst neben Namen und Adresse auch nach dem Spezialgebiet suchen und zwar auch immer nur mit teilweiser Eingabe. Zum Beispiel,",
+			"example": "<em>sucht nach allen Fachärzten der Zahn-, Mund- und Kieferheilkunde im 1. Wiener Gemeindebezirk.</em>",
+			"legend": {
+				"title": "Legende:",
+				"open": "Jetzt geöffnet",
+				"closed": "Jetzt geschlossen",
+				"none": "Keine festen Öffnungszeiten"
+			}
+		},
+		"paging": {
+			"entries": "{count, plural, one{# Eintrag} other{# Einträge}}",
+			"showing": "Zeige {start} bis {end} von {count} Einträgen"
+		}
+	},
+	"ProfilePage": {
+		"contact": "Kontakt",
+		"openingHours": "Öffnungszeiten",
+		"specialty": "Spezialgebiete",
+		"insurers": "Versicherungen",
+		"noInsurers": "Keine Kassen",
+		"byAppointment": "Nach Vereinbarung",
+		"openNow": "Jetzt geöffnet!",
+		"closed": "Derzeit geschlossen",
+		"openByAppointment": "Geöffnet nach Vereinbarung"
+	},
+	"Tabs": {
+		"anamnesis": "Anamnese",
+		"info": "Info",
+		"search": "Suche",
+		"doctors": "Ärzte"
+	},
+	"appTour": {
+		"walkThrough": {
+			"tag": "APP-TOUR",
+			"title": "Ärztliche Beratung bequem per App",
+			"bulletPoints": {
+				"1": "Arztgespräche per Video Call sofort",
+				"2": "Rezepte, Überweisungen, Befunde",
+				"3": "Deine persönliche Gesundheitsakte",
+				"4": "ÄrtzInnen Suche"
+			},
+			"conclusion": "Sieh dir alle Leistungen und Vorteile in einer kurzen Tour an."
+		},
+		"consultation": {
+			"title": "Ärtzliche Sprechstunde",
+			"description": "Vertrauliche Videogespräche mit österreichischen HausärztInnen auf Knopfdruck.",
+			"bulletPoints": {
+				"1": "Ohne Termin und Wartezeit",
+				"2": "Ohne Anfahrtswege",
+				"3": "Ordinationszeiten derzeit: Mo - Fr von 9 - 17 Uhr, auch an Feiertagen"
+			}
+		},
+		"docs": {
+			"title": "Empfangen & Einlösen von Medizinischen Dokumenten",
+			"description": "Im Zuge des Arztgesprächs erhältst du bei Bedarf:",
+			"bulletPoints": {
+				"1": "Rezepte (einzulösen in allen Österreichischen Apotheken):",
+				"2": "Überweisungen",
+				"3": "Laborzuweisungen",
+				"4": "Krankschreibungen"
+			},
+			"conclusion": "direkt in die App übermittelt."
+		},
+		"health": {
+			"title": "Persönliche Gesundheitsakte",
+			"description": "Vertrauliche Aufbewahrung von medizinischen Dokumenten.",
+			"bulletPoints": {
+				"1": "Digitaler Tresor für deine medizinischen Daten",
+				"2": "Sicher uploaden und speichern",
+				"3": "Downloaden und drucken",
+				"4": "Entscheide selbst, ob du deine medizinischen Dokumente mit ÄrztInnen teilst"
+			}
+		},
+		"doctorSearch": {
+			"title": "ÄrztInnen-Suche",
+			"bulletPoints": {
+				"1": "Unparteiischer Zugang zu allen niedergelassenen ÄrztInnen Österreichs ohne Werbung",
+				"2": "Verschiedene Filtermöglichkeiten wie Spezialisierung und Standort",
+				"3": "Buche einen Termin und lerne neue ÄrztInnen kennen",
+				"4": "Setze den nächsten Schritt für deine Behandlung"
+			}
+		},
+		"dataProtection": {
+			"title": "Datenschutz",
+			"description": "Die Sicherheit und Vertraulichkeit deiner Gesundheitsdaten ist für uns zentral!",
+			"bulletPoints": {
+				"1": "drd doctors online handelt nicht mit Deinen Daten",
+				"2": "Deine Gesundheitsdaten sind end-to-end-verschlüsselt",
+				"3": "Nur du entscheidest, mit wem du deine Daten teilst",
+				"4": "Alle unsere Server sind in der DACH-Region (Deutschland, Österreich, Schweiz)"
+			}
+		}
+	},
+	"pin": {
+		"noneProvided": "Es wurde kein PIN-Code eingegeben.",
+		"notValid": "Der eingegebene PIN-Code wurde nicht gefunden.",
+		"success": "😀 Die Daten wurden erfolgreich hochgeladen."
+	},
+	"Settings": {
+		"title": "Einstellungen",
+		"about": "Über drd",
+		"faq": "FAQ",
+		"privacy": "Datenschutz",
+		"export": "Export",
+		"feedback": "Feedback"
+	},
+	"footerText": "In Kooperation mit Drei und Generali",
+	"delete": "Löschen",
+	"deleteWarning": "Bist du sicher, dass du den Eintrag löschen willst?",
+	"none": "Keine",
+	"save": "Speichern",
+	"unknown": "unbekannt",
+	"noItems": "Keine Einträge vorhanden",
+	"add": "Hinzufügen",
+	"confirm": "Bestätigen",
+	"cancel": "Abbrechen",
+	"OK": "OK",
+	"enter": "Senden",
+	"uploading": "Hochladen",
+	"toDrd": "Zur Plattform",
+	"forward": "Weiter",
+	"done": "Fertig",
+	"never": "nie",
+	"loading": "Laden..."
+}

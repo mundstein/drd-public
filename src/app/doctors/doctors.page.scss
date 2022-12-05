@@ -1,0 +1,33 @@
+ion-toggle {
+    margin-right: 10px; 
+}
+
+.error {
+    color:red;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.success {
+    color: darkgreen;
+    font-weight: bold;
+}
+
+.send-button {
+    margin-top: 16px;
+}
+
+.messages {
+    min-height: 48px; 
+}
+
+ion-card {
+    padding: 24px;
+
+    p {
+        font-size:larger;
+    }
+}
+
+.upload {
+    padding: 20px;
+}

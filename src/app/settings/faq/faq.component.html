@@ -1,0 +1,11 @@
+<h2 class="ion-text-center">{{'title' | translate}}</h2>
+<ion-list overflow-scroll="true">
+  <ion-item-group *ngFor="let category of faqs">
+    <ion-item-divider>
+      <ion-label><h1>{{ category.category | translate }}</h1></ion-label>
+    </ion-item-divider>
+    <div *ngFor="let faq of category.faqs">
+      <app-faq-card [item]="faq"></app-faq-card>
+    </div>
+  </ion-item-group>
+</ion-list>

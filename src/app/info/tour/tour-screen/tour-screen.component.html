@@ -1,0 +1,32 @@
+<div class="slide">
+  <ion-grid>
+    <ion-row class="header">
+      <ion-col>
+        <ion-img [src]="slide.image" class="image"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h2>{{ slide.title | translate }}</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="slide.description" class="ion-text-left">
+      <ion-col>
+        {{ slide.description | translate }}
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-left" *ngFor="let point of slide.bulletPoints">
+      <ion-col size="2" class="v-center">
+        <mat-icon class="icon">task_alt</mat-icon>
+      </ion-col>
+      <ion-col size="10" class="v-center">
+        <ion-text>{{ point | translate }}</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="slide.conclusion" class="ion-text-left">
+      <ion-col>
+        {{ slide.conclusion | translate }}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

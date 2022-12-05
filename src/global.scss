@@ -1,0 +1,78 @@
+/*
+* App Global CSS
+* ----------------------------------------------------------------------------
+* Put style rules here that you want to apply globally. These styles are for
+* the entire app and not just one component. Additionally, this file can be
+* used as an entry point to import other CSS/Sass files to be included in the
+* output CSS.
+* For more information on global stylesheets, visit the documentation:
+* https://ionicframework.com/docs/layout/global-stylesheets
+*/
+@use '@angular/material'as mat;
+@include mat.core();
+
+@import '~swiper/scss';
+@import '~@ionic/angular/css/ionic-swiper.css';
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+.width-full {
+    width: 100%;
+}
+
+.header {
+    position: relative;
+
+    background-color: var(--ion-color-primary);
+    color: var(--ion-color-light-contrast);
+    padding: 16px;
+    clip-path: ellipse(90% 100% at 50% 0);
+    max-height: 35%;
+    overflow-y:hidden;
+
+    .image {
+        border-radius: 15px 15px 0px 0px;
+    }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+ion-button {
+    --color: var(--ion-color-secondary-contrast);
+}
+
+ion-button[fill="outline"] {
+    --color: var(--ion-color-primary);
+}
+
+/* Outdated Android phones */
+body {
+    background-color: white;
+}

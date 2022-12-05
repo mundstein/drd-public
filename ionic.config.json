@@ -1,0 +1,8 @@
+{
+  "name": "drd doctors",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "cfb736c9"
+}

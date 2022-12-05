@@ -1,0 +1,34 @@
+.specialty {
+    font-size: smaller;
+    margin-top: -4px;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.address {
+    text-align: right;
+    float: right;
+}
+
+.dot {
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+    display: inline-block;
+    background-color: gray;
+
+}
+
+.closed {
+    background-color: red;
+}
+
+.none {
+    background-color: darkgray;
+}
+
+.open {
+    background-color: green;
+}

@@ -1,0 +1,39 @@
+<ion-header translucent="true">
+  <ion-toolbar>
+    <ion-title>
+      {{ 'Anamnesis.titles.anamnesis' | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ 'Anamnesis.titles.anamnesis' | translate }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-list>
+    <ion-item *ngFor="let topic of topics"
+    [routerLink]="['/tabs', 'anamnesis', topic.url]" detail>
+      <ion-icon [src]="'/assets/icon/' + topic.icon + '.svg'"
+        class="list-icon"
+        size="large"
+        color="primary"
+      ></ion-icon>
+      <ion-label class="ion-text-wrap">
+        <h3>{{ topic.title | translate }}</h3>
+        <p>{{ topic.subtitle | translate }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <div class="ion-padding ion-text-center">
+    <p [innerHtml]="'Checkup.intro' | translate "></p>
+    <ion-button size="medium" (click)="tappedCheckup()" [disabled]="!checkupEnabled"
+      [routerLink]="['/tabs', 'anamnesis', 'checkup']">
+      <ion-icon name="document-text-outline"></ion-icon>&nbsp;
+      {{ 'Checkup.startButton' | translate}}
+    </ion-button>
+  </div>
+
+</ion-content>

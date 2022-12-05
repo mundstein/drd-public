@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/anamnesis"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'Anamnesis.titles.' + title | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="container" [formGroup]="form">
+
+    <p class="no-items" *ngIf="items.length === 0">{{'noItems' | translate}}</p>
+    <ng-container *ngFor="let item of items; index as index">
+      <ion-card class="item-card" *ngIf="!isMedication">
+        <p class="ion-text-wrap">{{ item }}</p>
+        <ion-icon name="close" class="close-button" (click)="delete(index)">
+        </ion-icon> 
+      </ion-card>
+      <ion-card class="item-card" *ngIf="isMedication">
+        <ion-row class="ion-text-wrap medication-name med-row">
+          {{ item.name }}
+        </ion-row>
+        <ion-row class="ion-text-wrap med-row">
+          {{ 'Medication.dosis' | translate }}:
+          &nbsp; {{ item.dosis }}
+        </ion-row>
+        <ion-row class="ion-text-wrap">
+          {{ 'Medication.date' | translate }}:
+          &nbsp; {{ item.date }}
+        </ion-row>
+        <ion-icon name="close" class="close-button" (click)="delete(index)">
+        </ion-icon>
+      </ion-card>
+    </ng-container>
+    <div class="add-item">
+      <a *ngIf="!adding" (click)="adding = true">
+        + {{'Anamnesis.addItem' | translate:{'item': itemName | translate } }}
+      </a>
+    </div>
+    <div class="adding-item" *ngIf="adding">
+      <ng-container *ngIf="!isMedication">
+        <ion-input
+          [placeholder]="'Anamnesis.labels.item' | translate"
+          formControlName="name"
+        ></ion-input>
+      </ng-container>
+      <ng-container *ngIf="isMedication">
+        <app-medicine-form
+          [form]="form"
+        ></app-medicine-form>
+      </ng-container>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="addItem()" class="add-button">
+            <ion-icon name="add-outline"></ion-icon>&nbsp;
+            {{ 'add' | translate }}
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="cancel()" fill="outline" class="add-button">
+            <ion-icon name="close-outline"></ion-icon>&nbsp;
+            {{ 'cancel' | translate }}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+    <ion-row class="final-row" *ngIf="!adding">
+      <ion-col>
+        <ion-button expand="block" (click)="save()"
+          routerDirection="back"
+          (click)="goBack()"
+        >
+        <ion-icon name="checkmark-circle-outline"></ion-icon>&nbsp;
+        {{ 'save' | translate }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </div>
+</ion-content>

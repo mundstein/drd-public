@@ -1,0 +1,56 @@
+.status {
+    color: darkgray;
+    font-style: italic;
+    font-size: smaller;
+    text-align: center;
+    line-height: 28px; 
+    height: 30px;
+}
+
+.image-container {
+    width: 100%;
+    align-items: center; 
+    
+    ion-img {
+        display: block;
+        margin:auto;
+        max-width: 75%;
+        max-height: 500px;
+    }
+}
+
+.code {
+    font-family:'Courier New', Courier, monospace;
+    font-size:larger;
+    
+}
+
+.dot {
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+    display: inline-block;
+    background-color: gray;
+
+}
+
+.closed {
+    background-color: red;
+}
+
+.none {
+    background-color: darkgray;
+}
+
+.open {
+    background-color: green;
+}
+
+.legend {
+    margin-top: -15px;
+}
+
+.example {
+    margin-top: -15px;
+    font-size: smaller;
+}

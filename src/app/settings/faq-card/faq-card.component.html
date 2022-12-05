@@ -1,0 +1,11 @@
+<ion-item button="true" (click)="toggle()" detail="false">
+  <p class="ion-word-wrap faq-title" [innerHtml]="item.title | translate"></p>
+  <ion-icon 
+    name="chevron-forward-outline" 
+    slot="end"
+    [ngStyle]="{ transform: expanded ? 'rotate(90deg)' : 'rotate(0deg)'}"
+  ></ion-icon>
+</ion-item>
+<div *ngIf="expanded" class="faq-text">
+  <p [innerHtml]="item.text | translate"></p>
+</div>

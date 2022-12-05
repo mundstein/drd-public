@@ -1,0 +1,216 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/anamnesis"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'Checkup.title' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1 [innerHtml]="'Checkup.form.title' | translate "></h1>
+  <div [innerHtml]="'Checkup.form.intro' | translate "></div>
+  <h4>{{ 'Checkup.legend.title' | translate }}</h4>
+  <ul>
+    <li><app-status-dot status="notAnswered"></app-status-dot> {{'Checkup.legend.notAnswered' | translate }}</li>
+    <li><app-status-dot status="yes"></app-status-dot> {{'Checkup.legend.yes' | translate }}</li>
+    <li><app-status-dot status="no"></app-status-dot> {{'Checkup.legend.no' | translate }}</li>
+    <li><app-status-dot status="dontKnow"></app-status-dot> {{'Checkup.legend.dontKnow' | translate }}</li>
+  </ul>
+  <!-- #development help - this button deletes the entire checkup storage -->
+  <!-- <ion-button fill="outline" color="danger" size="small" (click)="reset()">Reset</ion-button> -->
+  <!-- end #development help -->
+  <p class="updated ion-text-center"> 
+    {{'Checkup.form.updated' | translate }}: 
+    {{ checkup.updated ? (checkup.updated | date:'dd.LL.YYYY') : ('never' | translate)}}
+  </p>
+  <ion-list lines="none">
+    <ng-container *ngFor="let question of checkup.items; trackBy: text">
+      <div class="divider" *ngIf="showDividerForQuestion(question)"></div>
+      <!-- In some cases, insert a header -->
+      <!-- Introducing acute illnesses -->
+      <ion-item *ngIf="question.text == 'q23'">
+        <ion-label class="ion-text-wrap intro-text">
+          {{ 'Checkup.form.acuteQuestion' | translate }}
+        </ion-label>
+      </ion-item>
+      <!-- Prompt for more acute illnesses -->
+      <ng-container *ngIf="question.text == 'q31'">
+        <ion-item>
+          <ion-label class="ion-text-wrap">
+            {{ 'Checkup.form.acuteList' | translate }}
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label class="ion-text-center">
+            <ion-button [routerLink]="['/tabs', 'anamnesis', 'acute']">
+              {{ 'Checkup.form.acuteButton' | translate }}
+            </ion-button>
+          </ion-label>
+        </ion-item>
+        <div class="divider"></div>
+        <!-- Introduce chronic illnesses-->
+        <ion-item>
+          <ion-label class="ion-text-wrap intro-text">
+            {{ 'Checkup.form.chronicQuestion' | translate }}
+          </ion-label>
+        </ion-item>
+      </ng-container>
+      <ng-container *ngIf="question.text == 'q43'">
+        <!-- Prompt for more chronic illnesses -->
+        <ion-item>
+          <ion-label class="ion-text-wrap">
+            {{ 'Checkup.form.chronicList' | translate }}
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label class="ion-text-center">
+            <ion-button [routerLink]="['/tabs', 'anamnesis', 'illnesses']">
+              {{ 'Checkup.form.toAnamnesis' | translate }}
+            </ion-button>
+          </ion-label>
+        </ion-item>
+        <div class="divider"></div>
+        <!-- Prompt for surgeries -->
+        <ion-item>
+          <ion-label class="ion-text-wrap">
+            {{ 'Checkup.form.surgeriesList' | translate }}
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label class="ion-text-center">
+            <ion-button [routerLink]="['/tabs', 'anamnesis', 'surgeries']">
+              {{ 'Checkup.form.toAnamnesis' | translate }}
+            </ion-button>
+          </ion-label>
+        </ion-item>
+        <div class="divider"></div>
+      </ng-container>
+      <ion-item detail="false">
+        <!-- Display normal question text -->
+        <ng-container *ngIf="question.text != 'q12'">
+          <ion-label class="ion-text-wrap">
+            {{ 'Checkup.form.' + question.text | translate }}
+          </ion-label>
+        </ng-container>
+        <!-- Display custom text for cigarettes, depending on answer-->
+        <ng-container *ngIf="question.text == 'q12'">
+          <ion-label 
+            *ngIf="checkup.cigarettes || checkup.cigarettes === 0"
+            class="ion-text-wrap" translate 
+            [translateParams]="{count: checkup.cigarettes}">Checkup.form.q12
+          </ion-label>
+          <ion-label 
+            *ngIf="checkup.cigarettes == null"
+            class="ion-text-wrap">{{ 'Checkup.form.q12Unknown' | translate}}
+          </ion-label>
+        </ng-container>
+        <!-- Status -->
+        <app-status-dot
+          [status]="statusForQuestion(question.text)" 
+          [showTitle]="true" 
+          class="withTitle">
+        </app-status-dot>
+      </ion-item>
+      <ion-item>
+        <!-- Special inputs for cigarettes and alcohol -->
+        <ng-container *ngIf="question.text == 'q12' || question.text == 'q18'; else normal">
+          <!-- Cigarettes input -->
+          <ng-container *ngIf="question.text == 'q12'">
+            <ion-label>{{'Checkup.form.cigarettesLabel' | translate}}:</ion-label>
+            <ion-input
+              type="number"
+              [placeholder]="'Checkup.form.cigarettesPlaceholder'|translate"
+              [(ngModel)]="checkup.cigarettes"
+              (ionChange)="cigsChanged()"
+            >
+            </ion-input>
+          </ng-container>
+          <!-- Alcohol Input -->
+          <ng-container *ngIf="question.text == 'q18'">
+            <ion-card class="list-card">
+              <ion-list>  
+                <ion-radio-group [value]="question.answer.frequency"
+                  (ionChange)="frequencyChanged($event)"
+                >                
+                  <ion-item *ngFor="let frequency of frequencyOptions">
+                    <ion-label class="ion-text-wrap">
+                      {{'Checkup.answer.' + frequency | translate}}
+                    </ion-label>
+                    <ion-radio [value]="frequency" slot="end"></ion-radio>
+                  </ion-item>
+                </ion-radio-group>          
+              </ion-list>
+            </ion-card>
+          </ng-container>
+        </ng-container>
+        <!-- Normal "boolean" input (yes/no/don't know/cancel) -->
+        <ng-template #normal>
+          <div *ngFor="let bool of boolOptions">
+            <ion-button (click)="tappedAnswer(question.text, bool)"
+            [fill]="fillForButton(question,bool)"
+            >{{'Checkup.answer.' + bool|translate}}</ion-button>
+          </div>
+        </ng-template>
+        <ion-button *ngIf="question.text != 'q18'"
+          (click)="tappedAnswer(question.text, 'notAnswered')"
+          fill="clear" color="medium">
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ng-container>
+    <!-- Cancer questions -->
+    <ng-container *ngIf="cancer">
+      <ion-item >
+        <ion-label class="ion-text-wrap">
+          {{ 'Checkup.form.whichRelative' | translate }}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="checkup.relative" 
+          [placeholder]="'Checkup.form.relativePlaceholder' | translate" (ionBlur)="save()">
+        </ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-label class="ion-text-wrap">
+          {{ 'Checkup.form.whichCancer' | translate }}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="checkup.cancerType" 
+          [placeholder]="'Checkup.form.cancerPlaceholder' | translate" (ionBlur)="save()">
+        </ion-input>
+      </ion-item>
+    </ng-container>
+    <div class="divider"></div>
+    <!-- Body measurements -->
+    <ion-item>
+      <ion-label>{{ 'Ihre Körpergröße' | translate }}:</ion-label>
+       <ion-label slot="end">{{ checkup.height }} cm</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ 'Ihr Körpergewicht' | translate }}:</ion-label>
+       <ion-label slot="end">{{ checkup.weight }} kg</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="ion-text-wrap">
+        {{ 'Checkup.form.updateViaAnamnesis' | translate }}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="ion-text-center">
+        <ion-button [routerLink]="['/tabs', 'anamnesis', 'body']">
+          {{ 'Checkup.form.toAnamnesis' | translate }}
+        </ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <div class="divider"></div>
+  <div class="ion-text-center">
+    <p>{{'Checkup.export.message' | translate}}</p>
+    <ion-button (click)="export()" [disabled]="!exportEnabled">
+      <ion-icon name="download-outline"></ion-icon>&nbsp;
+      {{'Checkup.export.button' | translate}}
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-content class="ion-padding full-screen">
+  <div class="container">
+    <div class="swiper-wrapper">
+      <swiper class="full-screen swiper"
+      (swiper)="setSwiperInstance($event)">
+        <ng-template swiperSlide
+          *ngFor="let slide of slides"  
+        >
+          <app-tour-screen [slide]="slide"></app-tour-screen>
+        </ng-template>
+      </swiper>
+    </div>
+    <div class="ion-text-center">
+      <ion-button (click)="sendDismiss()">{{ 'done' | translate }}</ion-button>
+      <ion-button 
+        *ngIf="showNext"
+        fill="outline" 
+        (click)="forward()">
+        {{ 'forward' | translate }}
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

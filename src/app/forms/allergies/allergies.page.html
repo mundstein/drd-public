@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/anamnesis"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'Anamnesis.titles.allergies' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="container" [formGroup]="form">
+    <div style="text-align:center">
+      <mat-icon class="header-icon">filter_vintage</mat-icon>
+    </div>
+    <ion-row>
+      <h3>{{ 'Anamnesis.titles.allergies' | translate }}</h3>
+    </ion-row>
+    <ion-row hidden>
+      <ion-label>{{ 'Anamnesis.labels.allergies' | translate }}:</ion-label>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-textarea formControlName="allergies" rows="5">
+        </ion-textarea>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" fill="outline" (click)="clear()"
+        >
+        <ion-icon name="trash-outline"></ion-icon>&nbsp;
+        {{ 'delete' | translate }}
+      </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="save()" 
+          [routerLink]="['/tabs', 'anamnesis']"
+          [routerDirection]="'back'"
+        >
+        <ion-icon name="checkmark-circle-outline"></ion-icon>&nbsp;
+        {{ 'save' | translate }}
+      </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

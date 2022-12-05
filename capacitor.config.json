@@ -1,0 +1,6 @@
+{
+	"appId": "com.drd",
+	"appName": "drd doctors",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

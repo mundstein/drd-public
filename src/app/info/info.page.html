@@ -1,0 +1,120 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      {{ 'InfoPage.title' | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ 'InfoPage.title' | translate }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="header">
+    <ion-img src="/assets/image/health.svg" class="image"></ion-img>
+  </div>
+  <div class="container">
+    <ion-img src="/assets/icon/logo.jpg" class="logo"></ion-img>
+    <h4 *ngIf="!isAndroid">{{'InfoPage.heading' | translate }}</h4>
+    <p [innerHtml]="(isAndroid ? 'InfoPage.android.para1' : 'InfoPage.para1') | translate">
+    </p>
+    <ion-button
+      expand="block"
+      size="medium"
+      [routerLink]="['/tabs', 'anamnesis']"
+    >
+      <ion-icon name="arrow-forward-outline"></ion-icon>&nbsp;
+      {{ 'InfoPage.startButton' | translate }}
+    </ion-button>
+    <ion-row>
+      <ion-col>
+        <p [innerHtml]="'InfoPage.para2' | translate"></p>
+      </ion-col>
+    </ion-row>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-img src="/assets/image/consultation.png" class="feature-image"></ion-img>
+        </ion-col>
+        <ion-col class="feature-text">
+          <ion-text [innerHtml]="'InfoPage.feature1' | translate"></ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-img src="/assets/image/data-protection.png" class="feature-image"></ion-img>
+        </ion-col>
+        <ion-col class="feature-text">
+          <p [innerHtml]="'InfoPage.feature2' | translate"></p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-img src="/assets/image/doctor-search.png" class="feature-image"></ion-img>
+        </ion-col>
+        <ion-col class="feature-text">
+          <p [innerHtml]="'InfoPage.feature3' | translate"></p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button expand="block" fill="outline" size="medium" (click)="showDrdInfo = true">
+      <ion-icon name="information-circle-outline"></ion-icon>&nbsp;
+      {{ 'InfoPage.showMore' | translate }}
+    </ion-button>
+    <ion-modal 
+        [isOpen]="showDrdInfo"
+        [breakpoints]="[0.1, 0.9, 1]"
+        [initialBreakpoint]="0.9"
+        (didDismiss)="showDrdInfo = false"
+      >
+        <ng-template>
+          <ion-content>
+            <app-tour (dismiss)="didDismissDrdInfo()"></app-tour>
+          </ion-content>
+        </ng-template>
+    </ion-modal>
+    <ng-container *ngIf="isAndroid">
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" size="medium" href="https://web.drd.at" target="_blank">
+            <ion-icon name="medkit-outline"></ion-icon>&nbsp;
+            {{ 'toDrd' | translate }}
+          </ion-button>
+          <p [innerHtml]="'InfoPage.para3' | translate"></p>
+          <ion-button expand="block" size="medium" [routerLink]="['/tabs', 'profile']">
+            <ion-icon name="download-outline"></ion-icon>&nbsp;
+            {{ 'InfoPage.exportButton' | translate }}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+    <ion-row>
+      <ion-col>
+        <p [innerHtml]="'InfoPage.para4' | translate"></p>
+        <ion-button
+          expand="block"
+          fill="outline"
+          size="medium"
+          [href]="'InfoPage.wikiLink' | translate"
+          target="_blank"
+        >
+        <ion-icon name="globe-outline"></ion-icon>&nbsp;
+        {{ 'InfoPage.wikiButton' | translate}}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p class="ion-text-center footer">
+          {{ 'footerText' | translate }}<br>
+          <ion-img src="/assets/image/three-austria-logo.gif" class="sponsor"></ion-img>
+          &nbsp;
+          <ion-img src="/assets/image/generali-groupe-logo.jpeg" class="sponsor"></ion-img>
+        </p>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

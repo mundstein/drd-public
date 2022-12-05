@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Checkup</title>
+    <style>
+        body { margin: 15px; font-family: Verdana, sans-serif; }
+        .image { height: 80px; margin-left:-30px; }
+        h3 { text-transform: uppercase;}
+        p { font-size: 8pt; }
+        .list { padding-top: 0px; }
+        .limit-width { width: 80%; }
+        .limit-height { height: 50px; }
+        .horizontal-list { margin-right: 15px;}
+        .spacer { margin-left: 150px;}
+        table { padding: 0px; }
+        tr { padding: 0px; margin: 0px;}
+        td { padding: 0px; margin: 0px; }
+    </style>
+</head>
+<body>
+    <img src="/assets/icon/logo.png" class="image">
+    <h3>Vorsorgeuntersuchung Fragebogen</h3>
+    <p><em>Erstellt: {{date}}</em></p>
+    <table>
+        <tr height="10px">
+            <td class="limit-width">
+                <p>Ich habe Probleme beim Sehen (trotz Tragens einer Brille oder von Kontaktlinsen):</p>
+            </td> 
+            <td>
+                <p>{{answer-q1}}</p>
+            </td>
+        </tr>
+        <tr height="10px">
+            <td>
+                <p>Ich brauche starke Brillen oder Kontaktlinsen, um in der Ferne sehen zu können:</p>
+            </td> 
+            <td>
+                <p>{{answer-q2}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Ich habe einen Blutsverwandten ersten Grades (Elternteil, Bruder, Schwester oder Kind) mit grünem Star:</p>
+            </td> 
+            <td>
+                <p>{{answer-q3}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>(ab 65 Jahre:)</strong> Mein Sehvermögen wird regelmäßig überprüft:</p>
+            </td> 
+            <td>
+                <p>{{answer-q4}}</p>
+            </td>
+        </tr>
+        <tr><!-- Diabetes section -->
+            <td>
+                <p>
+                    Mir wurde gesagt, dass ich Diabetes (Zucker) habe (kein Schwangerschaftsdiabetes):
+                    <br>Ich bin deswegen in Behandlung:
+                    <br>Ich habe einen Blutsverwandten mit Diabetes:
+                </p> 
+            </td> 
+            <td>
+                <p>
+                    {{answer-q5}}
+                    <br>{{answer-q6}}
+                    <br>{{answer-q7}}
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>(Frauen:)</strong> Während der Schwangerschaft hat man mir gesagt, dass ich Diabetes habe:</p> 
+            </td> 
+            <td>
+                <p>{{answer-q8}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Ich habe einen Elternteil, einen Bruder oder eine Schwester (unter 60 Jahre) der / die ein Herzleiden haben oder der / die daran starben:</p>
+            </td> 
+            <td>
+                <p>{{answer-q9}}</p>
+            </td>
+        </tr>
+        </tr>
+        <tr>
+            <td>
+                <p>Ich habe bzw. hatte einen Blutsverwandten mit hohen Cholesterinwerten:</p>
+            </td> 
+            <td>
+                <p>{{answer-q10}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Ich habe bereits einen Herzinfarkt erlitten bzw. wurde mir gesagt, dass ich an einer Durchblutungsstörung der Herzkranzgefäße leide:</p>
+            </td> 
+            <td>
+                <p>{{answer-q11}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p><strong>Ich rauche {{cigarettes}} Zigaretten pro Tag.</strong></p>
+            </td> 
+        </tr>
+        <tr>
+            <td>
+                <p>Ich habe Bluthochdruck (d. h. einen Blutdruck über 140 / 90) und / oder nehme derzeit Medikamente gegen Bluthochdruck ein:</p>
+            </td> 
+            <td>
+                <p>{{answer-q13}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>(ab 65 Jahre:) Ich habe Probleme beim Hören: </p>
+            </td> 
+            <td>
+                <p>{{answer-q14}}</p>
+            </td>
+        </tr>
+        <tr>
+        <td><!-- Medications section-->
+            <p>
+                In den letzten 2 Wochen nahm ich:
+                <br>Schmerzmittel (Aspirin oder Ähnliches)
+                <br>Beruhigungsmittel (Valium oder Ähnliches)
+                <br>Schlafmittel
+            </p>
+        </td>
+        <td>
+            <p>
+                <br>{{answer-q15}}
+                <br>{{answer-q16}}
+                <br>{{answer-q17}}
+            </p>
+        </td>
+        </tr>
+        <tr>
+            <td>
+                <p><strong>Wie oft trinken Sie Alkohol?</strong></p>
+            </td>
+            <td>
+                <p>{{answer-q18}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Blutet Ihr Zahnfleisch beim Zähneputzen oder beim Essen harter Nahrung, oder fühlt sich Ihr Zahnfleisch geschwollen oder empfindlich an?</p>
+            </td>
+            <td>
+                <p>{{answer-q19}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Hat sich Ihr Zahnfleisch zurückgezogen? Glauben Sie, dass Ihre Zähne scheinbar längergeworden sind, oder sind die Zwischenräume zwischen Ihren Zähnen größer geworden?</p>
+            </td>
+            <td>
+                <p>{{answer-q20}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Falls Sie eine Teilprothese tragen, hat sich die Passform verändert?</p>
+            </td>
+            <td>
+                <p>{{answer-q21}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Haben Sie Probleme mit Mundgeruch?</p>
+            </td>
+            <td>
+                <p>{{answer-q22}}</p>
+            </td>
+        </tr>
+        <tr> <!-- Acute illnesses section -->
+            <td>
+                <p>
+                    <strong>Während der letzten 2 Monate hatte / habe ich folgende akute Erkrankungen::</strong>
+                    <br>Erkältung
+                    <br>Grippe
+                    <br>akute Bronchitis
+                    <br>Lungenentzündung
+                    <br>Infektion der Nieren oder des Harntraktes
+                    <br>Durchfall
+                    <br>Erbrechen
+                    <br>Magengeschwür
+                </p>
+            </td>
+            <td>
+                <p>
+                    <br>{{answer-q23}}
+                    <br>{{answer-q24}}
+                    <br>{{answer-q25}}
+                    <br>{{answer-q26}}
+                    <br>{{answer-q27}}
+                    <br>{{answer-q28}}
+                    <br>{{answer-q29}}
+                    <br>{{answer-q30}}
+                </p>
+            </td>
+        <tr>
+            <td colspan="2">
+                <p>... Andere Krankheiten: {{acute-illnesses}}</p>
+            </td>
+        </tr>
+        <tr><!-- Chronic illnesses section-->
+            <td>
+                <p>
+                    Schlaganfall / Gehirnblutung
+                    <br>Krebs
+                    <br>Depression
+                    <br>Migräne oder regelmäßige Kopfschmerzen
+                    <br>chronische Atemwegserkrankung (Asthma, Atemnot, Emphysem, chronischer Husten)
+                    <br>chronisches Ekzem
+                    <br>Schwindelanfälle mit Stürzen
+                    <br>Darmerkrankungen
+                    <br>Inkontinenz (Blasenschwäche)
+                    <br>chronische Rückenschmerzen
+                    <br>Abnutzung der Gelenke
+                    <br>chronische Entzündung der Gelenke (Arthritis)
+                </p>
+            </td>
+            <td>
+                <p>
+                    {{answer-q31}}
+                    <br>{{answer-q32}}
+                    <br>{{answer-q33}}
+                    <br>{{answer-q34}}
+                    <br>{{answer-q35}}
+                    <br>{{answer-q36}}
+                    <br>{{answer-q37}}
+                    <br>{{answer-q38}}
+                    <br>{{answer-q39}}
+                    <br>{{answer-q40}}
+                    <br>{{answer-q41}}
+                    <br>{{answer-q42}}
+                </p>
+            </td>
+        </tr>
+                
+        <tr>
+            <td colspan="2">
+                <p>...andere chronische Krankheiten: {{illnesses}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p>Operationen: {{surgeries}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Ich habe eine Blutsverwandte, die Brustkrebs hat/hatte:</p>
+            </td>
+            <td>
+                <p>{{answer-q43}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Ich habe / hatte eine / n Verwandte / n ersten Grades (Elternteil, Bruder, Schwester oder Kind), der/die Hautkrebs (Melanom) hat / hatte:</p>
+            </td>
+            <td>
+                <p>{{answer-q44}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>Ich habe / hatte eine / n Verwandte / n ersten Grades (Elternteil, Bruder, Schwester oder Kind), der/die irgendeine Form von Krebs (Lunge, Dickdarm, Blut, Prostata oder Gebärmutter) hat/hatte:</p>
+            </td>
+            <td>
+                <p>{{answer-q45}}</p>
+            </td>
+        </tr>
+        <tr><!-- Cancer section-->
+            <td colspan="2">
+                <p>
+                    Wenn ja, welcher Verwandte ersten Grades (Elternteil, Bruder, Schwester oder Kind): {{relative}}
+                    <br>Wenn ja, welche Krebsart: {{cancer-type}}
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p>Körpergröße: {{height}} <span class="spacer"></span>Körpergewicht: {{weight}}</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

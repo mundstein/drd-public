@@ -1,0 +1,50 @@
+<div [formGroup]="form">
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">
+          {{ 'Medication.name' | translate }}
+        </ion-label>
+        <ion-input formControlName="name"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">
+          {{ 'Medication.dosis' | translate }}
+        </ion-label>
+        <ion-input 
+          formControlName="dosis"
+        ></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item button="true" id="open-date-input">
+        <ion-label>{{ 'Medication.dateLabel' | translate }}</ion-label>
+        <ion-text slot="end">{{ date.value }}</ion-text>
+        <ion-modal 
+          trigger="open-date-input"
+          [breakpoints]="[0.1, 0.5, 0.9, 1]"
+          [initialBreakpoint]="0.9"
+        >
+          <ng-template>
+            <ion-datetime 
+              #popoverDatetime
+              presentation="date"
+              firstDayOfWeek="1"
+              [locale]="locale"
+              (ionChange)="date.setValue(formatDate(popoverDatetime.value))"
+              [doneText]="'done' | translate"
+              showDefaultButtons="true"
+              max="2050">
+            </ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</div>

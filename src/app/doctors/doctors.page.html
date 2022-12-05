@@ -1,0 +1,203 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      {{ 'DoctorsPage.title' | translate }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="showSettings = true">
+        <ion-icon name="settings-outline" color="medium"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content 
+  [fullscreen]="true" 
+  class="ion-padding"
+  [scrollEvents]="true"
+>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ 'DoctorsPage.title' | translate }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="header">
+    <ion-img src="/assets/image/walkthrough.svg" class="image"></ion-img>
+  </div>
+
+  <ng-container *ngIf="isAndroid">
+    <p>{{ 'DoctorsPage.android.para1' | translate }}</p>
+    <div class="ion-text-center">
+      <ion-button size="medium" href="https://web.drd.at" target="_blank">
+        <ion-icon name="medkit-outline"></ion-icon>&nbsp;
+        {{ 'toDrd' | translate }}
+      </ion-button>
+    </div>
+    <p>{{ 'DoctorsPage.android.para2' | translate }}</p>
+    <ion-item>
+      <ion-toggle [(ngModel)]="hasProfile" color="primary"></ion-toggle>
+      <ion-label class="ion-text-wrap">
+        {{ 'DoctorsPage.profileSwitchLabel' | translate }}
+      </ion-label>
+    </ion-item>
+    <div *ngIf="hasProfile">
+      <p>{{ 'DoctorsPage.enterCode' | translate }}</p>
+      <div class="messages">
+        <div *ngIf="currentError && currentError.length > 0">
+          <p class="error">{{ currentError | translate }}</p>
+        </div>
+        <div *ngIf="success">
+          <p class="success">{{ 'pin.success' | translate }} </p>
+        </div>
+      </div>
+      <ion-item [formGroup]="form">
+        <ion-input type="text" formControlName="code" inputmode="numeric"></ion-input>
+      </ion-item>
+      <div class="ion-text-center send-button">
+        <ion-button (click)="send()">
+          <ion-icon name="arrow-forward-outline"></ion-icon>&nbsp;
+          {{ 'enter' | translate }}
+        </ion-button>
+      </div>
+    </div>
+  </ng-container>
+
+
+
+
+  <ng-container *ngIf="!isAndroid">
+    <p>{{ 'DoctorsPage.para1' | translate }} </p>
+    <p>{{ 'DoctorsPage.para2' | translate }} </p>
+    <p>{{ 'DoctorsPage.para3' | translate }} </p>
+  
+    <div class="ion-text-center" hidden="true">
+      <ion-button 
+        size="medium" 
+        [routerLink]="['/tabs', 'anamnesis']"
+        [disabled]="anamnesisComplete"
+      >
+        <ion-icon name="medkit-outline"></ion-icon>&nbsp;
+        {{ 'DoctorsPage.toAnamnesis' | translate }}
+      </ion-button>
+    </div>
+  
+    <ion-item hidden="true">
+      <ion-toggle
+        [(ngModel)]="anamnesisComplete"
+        (ngModelChange)="scrollToBottom()"
+        color="primary"
+      ></ion-toggle>
+      <ion-label class="ion-text-wrap">
+        {{ 'DoctorsPage.completeSwitchLabel' | translate }}
+      </ion-label>
+    </ion-item>
+  
+    <div class="ion-text-center" *ngIf="anamnesisComplete">
+      <ion-button size="medium" (click)="showModal = true">
+        <ion-icon name="medkit-outline"></ion-icon>&nbsp;
+        {{ 'DoctorsPage.howto' | translate }}
+      </ion-button>
+    </div>
+  </ng-container>
+
+  <ion-modal 
+    [isOpen]="showModal" 
+    [breakpoints]="[0, 0.4, 0.5, 1]" 
+    [initialBreakpoint]="0.4"
+    (didDismiss)="showModal = false">  
+    <ng-template>
+      <ion-content>
+        <ion-card class="ion-text-center" padding>
+          <p [innerHtml]="'DoctorsPage.getToDoctor' | translate ">
+          </p>
+        </ion-card>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal
+    [isOpen]="showSettings"
+    [breakpoints]="[0, 0.1, 0.9, 1]"
+    [initialBreakpoint]="0.9"
+    (didDismiss)="showSettings = false">
+    <ng-template>
+      <ion-content id="settings">
+        <app-settings 
+          [exportEnabled]="anamnesisComplete"
+          [loading]="settingsLoading"
+          [isAndroid]="isAndroid"
+          (launchUrl)="goTo($event)"
+          (export)="showSettings = false; showUpload = true"
+          (dismiss)="showSettings = false"
+          (showComponent)="showComponent($event)"
+        ></app-settings>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal
+    [isOpen]="showUpload"
+    [breakpoints]="[0, 0.6, 0.9, 1]"
+    [initialBreakpoint]="0.6"
+    (didDismiss)="showUpload = false">
+    <ng-template>
+      <div class="upload">
+        <ion-item lines="none">
+          <ion-button slot="end" fill="clear" (click)="showUpload = false">
+            <ion-icon name="close" color="primary"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <p>{{ 'DoctorsPage.enterCode' | translate }}</p>
+        <p>{{ 'DoctorsPage.codeExplain' | translate }}</p>
+        <div class="messages" *ngIf="currentError || success">
+          <div *ngIf="currentError && currentError.length > 0">
+            <p class="error">{{ currentError | translate }}</p>
+          </div>
+          <div *ngIf="success">
+            <p class="success">{{ 'pin.success' | translate }}</p>
+          </div>
+        </div>
+        <ion-item [formGroup]="form">
+          <ion-label>PIN:</ion-label>
+          <ion-input
+            type="text"
+            formControlName="code"
+            inputmode="numeric"
+          ></ion-input>
+        </ion-item>
+        <div class="ion-text-center send-button">
+          <ion-button (click)="send()" [disabled]="apiLoading">
+            <ion-icon name="arrow-forward-outline" *ngIf="!apiLoading"></ion-icon>
+            <ion-icon name="hourglass-outline" *ngIf="apiLoading"></ion-icon>
+            &nbsp;
+            <span *ngIf="!apiLoading">{{ 'enter' | translate}}</span>
+            <span *ngIf="apiLoading">{{ 'uploading' | translate}}</span>
+          </ion-button>
+        </div>
+      </div>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal
+    [isOpen]="showFAQ"
+    [breakpoints]="[0, 0.9, 1]"
+    [initialBreakpoint]="0.9"
+    (didDismiss)="showFAQ = false"
+  >
+    <ng-template>
+      <ion-content><app-faq></app-faq></ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal
+    [isOpen]="showPrivacy"
+    [breakpoints]="[0, 0.9, 1]"
+    [initialBreakpoint]="0.9"
+    (didDismiss)="showPrivacy = false"
+  >
+    <ng-template>
+      <ion-content><app-privacy></app-privacy></ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>

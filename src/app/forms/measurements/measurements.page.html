@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/anamnesis"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'Anamnesis.shortTitles.bodyData' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div [formGroup]="form" class="main-content">
+
+    <div style="text-align:center">
+      <mat-icon class="header-icon">accessibility_new</mat-icon>
+    </div>
+  
+  
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label floating class="ion-text-wrap">
+            {{ 'Anamnesis.labels.heightCm' | translate }}
+          </ion-label>
+          <ion-input type="number" formControlName="height" slot="end"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label floating class="ion-text-wrap">
+            {{ 'Anamnesis.labels.weightKg' | translate }}
+          </ion-label>
+          <ion-input type="number" formControlName="weight" slot="end">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  
+  <ion-card *ngIf="bmi > 0">
+    <ion-row class="ion-justify-content-center bmi">
+      <h1>BMI: {{ bmi | number:'1.1-1'}}</h1>
+    </ion-row>
+    <ion-row>
+      <ion-item href="#" (click)="openURL(BMI_URL)">
+        <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+        <p>{{ 'Anamnesis.infos.bmi' | translate }}</p>
+      </ion-item>
+    </ion-row>
+  </ion-card>
+  
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label floating class="ion-text-wrap">
+            {{ 'Anamnesis.labels.bloodGroup' | translate }}
+          </ion-label>
+          <ion-select formControlName="blood">
+            <ion-select-option *ngFor="let group of bloodOptions" [value]="group">
+              {{ bloodgroup(group) | translate }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label floating class="ion-text-wrap">
+            {{ 'Anamnesis.labels.birthYear' | translate }}
+          </ion-label>
+          <ion-input type="number" formControlName="birthyear"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-card>
+      <ion-row class="ion-justify-content-center age">
+        <p>{{ 'Anamnesis.labels.age' | translate }}: ~ {{ age }}</p>
+      </ion-row>
+    </ion-card>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="save()"
+          routerLink="/tabs/anamnesis"
+          routerDirection="back"
+        >
+        <ion-icon name="checkmark-circle-outline"></ion-icon>&nbsp;
+        {{ 'save' | translate }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </div>
+
+</ion-content>

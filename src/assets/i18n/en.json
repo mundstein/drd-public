@@ -1,0 +1,316 @@
+{
+	"Anamnesis": {
+		"infos": {
+			"bmi": "More about the body-mass index"
+		},
+		"intros": {
+			"allergies": "Please enter your allergies and food intolerances, if any.",
+			"bodyData": "",
+			"illnesses": "Here you can enter any pre-existing conditions or chronic diseases and ailments.",
+			"medications": "",
+			"surgeries": ""
+		},
+		"labels": {
+			"age": "Age",
+			"allergies": "Allergies",
+			"birthYear": "Birth year",
+			"bloodGroup": "Blood group",
+			"heightCm": "Height in cm",
+			"illness": "Pre-existing condition",
+			"surgery": "operation",
+			"medication": "medication",
+			"item": "item",
+			"weightKg": "Weight in kg"
+		},
+		"subtitles": {
+			"allergies": "Which allergies have you been diagnosed with?",
+			"bodyData": "What is your weight, your body height, your blood group?",
+			"illnesses": "What preexisting conditions to you have?",
+			"medications": "Which medications are you taking currently?",
+			"surgeries": "Have you had any surgical interventions in the past?"
+		},
+		"titles": {
+			"anamnesis": "Anamnesis",
+			"allergies": "Allergies",
+			"bodyData": "Measurements",
+			"illnesses": "Conditions",
+			"medications": "Medications",
+			"surgeries": "Surgeries",
+			"acute": "Acute Illnesses"
+		},
+		"shortTitles": {
+			"bodyData": "Measurements"
+		},
+		"addItem": "Add {item}"
+	},
+	"Medication": {
+		"name": "Medication",
+		"dosis": "Dosage",
+		"dateLabel": "Take until",
+		"date": "Take until"
+	},
+	"Checkup": {
+		"intro": "<p><strong>Preventive Checkup</strong></p>You can also fill out a more elaborate survey.",
+		"startButton": "Go To Survey",
+		"title": "Checkup",
+		"legend": {
+			"title": "Legend",
+			"notAnswered": "= no answer",
+			"yes": "= yes",
+			"no": "= no",
+			"dontKnow": "= I don't know."
+		},
+		"form": {
+			"title": "Preventive Checkup Form",
+			"intro": "With a completed survey, the online consultation with the drd family doctor can be even more effective.",
+			"q1": "I have trouble seeing clearly (despite glasses or contact lenses).",
+			"q2": "I need strong glasses or contact lenses to see far distances.",
+			"q3": "I have a first degree relative (parent, sibling or child) with glaucoma.",
+			"q4": "(above 65:) My vision is not being checked regularly.",
+			"q5": "I was told that I have diabetes (not during pregnancy).",
+			"q6": "I am being treated for diabetes.",
+			"q7": "I have a blood relative with diabetes.",
+			"q8": "(women:) During pregnancy, I was told to have diabetes.",
+			"q9": "I have a parent or sibling (under the age of 60) who has a heart condition or died thereof.",
+			"q10": "I have a blood relation with high cholesterole.",
+			"q11": "I have experienced a heart attack or stroke, or I was told that I suffer from circulatory disorders of the coronary arteries.",
+			"q12": "I smoke {count, plural, =0{no cigarettes} one{one cigarette per day} other{# cigarettes per day}}.",
+			"q12Unknown": "I smoke (not specified) cigarettes per day.",
+			"cigarettesLabel": "Number of cigarettes",
+			"cigarettesPlaceholder": "per day",
+			"q13": "I have high blood pressure (above 140 / 90) or I am taking medication against hypertension.",
+			"q14": "(above 65:) I do not hear well.",
+			"q15": "In the last two weeks, I have taken medication against pain (Aspirin or similar).",
+			"q16": "In the last two weeks, I have taken tranquilizers (Valium or similar).",
+			"q17": "In the last two weeks, I have taken sleeping pills.",
+			"q18": "How often do you consume alcohol?",
+			"q19": "Do your gums bleed when you brush your teeth or eat solid food, or do your gums feel swollen or sensitive?",
+			"q20": "Have your gums receded? Do you think, your seem to have gotten longer, or the distance between them bigger?",
+			"q21": "If you have a partial denture, has the fit changed?",
+			"q22": "Do you have problems with bad breath?",
+			"acuteQuestion": "During the last two months I had (or have) the following diseases:",
+			"q23": "Common cold",
+			"q24": "Influenza",
+			"q25": "Acute bronchitis",
+			"q26": "Pneumonia",
+			"q27": "Infection of kidneys or urinary tract",
+			"q28": "Diarrhea",
+			"q29": "Sickness (vomiting)",
+			"q30": "Gastric ulcer",
+			"acuteList": "Please update any further acute illnesses.",
+			"acuteButton": "Update",
+			"chronicQuestion": "Do you have or did you have any of these chronic diseases?",
+			"q31": "Stroke (cerebral hemorrhage)",
+			"q32": "Cancer",
+			"q33": "Depression",
+			"q34": "Migraine or regularly occurring headache",
+			"q35": "Chronic respiratory disease (asthma, shortness of breath, emphysema, chronic cough)",
+			"q36": "Chronic eczema",
+			"q37": "Spells of dizziness with falls",
+			"q38": "Bowel disease",
+			"q39": "Incontinence",
+			"q40": "Chronic back pain",
+			"q41": "Wear of joints",
+			"q42": "Chronic inflammation of joints (arthritis)",
+			"chronicList": "Please update any further chronic diseases in the anamnesis section.",
+			"toAnamnesis": "To Anamnesis",
+			"surgeriesList": "Please list any surgeries you have undergone.",
+			"q43": "I have a blood relative who had breast cancer.",
+			"q44": "I have a first degree relative (parent, sibling or child) who had skin cancer (melanoma).",
+			"q45": "I have a first degree relative (parent, sibling or child) who had any kind of cancer (lung, colon, blood, prostate or uterus).",
+			"whichRelative": "If yes, which first degree relative?",
+			"relativePlaceholder": "relative",
+			"whichCancer": "If yes, what kind of cancer?",
+			"cancerPlaceholder": "Cancer type",
+			"updated": "Last updated",
+			"updateViaAnamnesis": "Please complete the body measurement information in the anmnesis section."
+		},
+		"answer": {
+			"yes": "Yes",
+			"no": "No",
+			"dontKnow": "Don't Know",
+			"notAnswered": "Not answered",
+			"never": "Never",
+			"monthly": "Once a month or less",
+			"weekly": "Two or three times a week",
+			"daily": "Four times a week or more"
+		},
+		"export": {
+			"message": "This survey can be exported as a PDF document.",
+			"button": "Export"
+		},
+		"labels": {
+			"acuteIllnesses": "Acute Illnesses"
+		}
+	},
+	"InfoPage": {
+		"heading": "Why health data is so important",
+		"para1": "Accurate information about the health state of a patient is the basis for a doctor to make an accurate diagnosis. This app will hellp you gather the basic data that you can use at your next doctor's visit.",
+		"para2": "<em>drd doctors online</em> is a company in tele-medicine that allows you to talk to your drd family doctor via video chat, keep a tab on all your medical records and contact any resident doctor in Austria.",
+		"startButton": "Start",
+		"title": "Information",
+		"para3": "You can also export the data of your anamnesis.",
+		"para4": "What is an \"anmnesis\", actually?",
+		"android": {
+			"para1": "You can capture your health data in this app to use them later on our plattform <a href=\"https://web.drd.at/en\">web.drd.at</a>."
+		},
+		"wikiLink": "https://en.m.wikipedia.org/wiki/Anamnese",
+		"wikiButton": "Wikipedia",
+		"feature1": "Consultation with a drd family doctor via video chat",
+		"feature2": "Electronic health records: simple and secure",
+		"feature3": "Doctor search: contact specialists and general practitioners in Austria",
+		"showMore": "More About drd",
+		"exportButton": "Export"
+	},
+	"DoctorsPage": {
+		"title": "Doctors",
+		"para1": "It is important to find the right doctor for your condition. drd doctors online has a comprehensive search to find just the right specialist in your neighborhood.",
+		"para2": "But sometimes it is equally important to get to a doctor right away, ideally without any travel or waiting time. drd doctors online provides this service for selected customers.",
+		"para3": "Before a consultation you should have completed your anamnesis.",
+		"android": {
+			"para1": "You can create your profile in the web app of drd doctors online, or you can simply log in there if you already have a profile.",
+			"para2": "Then you can upload the data of your anmnesis simply with a PIN which you can find on the profile page in the drd app.",
+			"haveProfileLabel": " Yes, I already have a profile. "
+		},
+		"toAnamnesis": "To Anamnesis",
+		"completeSwitchLabel": "Yes, my anamnesis is complete.",
+		"howto": "How do I get to a physician?",
+		"getToDoctor": "<strong>drd doctors online</strong> is available during usual business hours <a href=\"https://web.drd.at/en\" target=\"_blank\">online</a>.",
+		"enterCode": "Please enter your upload PIN here.",
+		"codeExplain": "You can find your PIN on the drd platform in the ”Anamnesis” section.",
+		"profileSwitchLabel": "Yes, I already have a profile.."
+	},
+	"SearchPage": {
+		"title": "Doctor Search Austria ",
+		"search": {
+			"placeholder": "Search",
+			"searching": "Searching...",
+			"noResults": "No search results"
+		},
+		"info": {
+			"title": "Free Doctor Search",
+			"intro": "The <strong>Doctor Search by drd</strong> is unique in Austria: here you can find the suitable specialist among the country's registered established medical professionals finden, along with all important information.",
+			"searchTips": "You can search for name, address or speicalty, even partially. For example,",
+			"example": "<em>will search for all dentists in Vienna's first district.</em>",
+			"legend": {
+				"title": "Legend:",
+				"open": "Open now",
+				"closed": "Currently closed",
+				"none": "No fixed opening hours"
+			}
+		},
+		"paging": {
+			"entries": "{count, plural, one{# result} other{# results}}",
+			"showing": "Showing {start} to {end} of {count} results"
+		}
+	},
+	"ProfilePage": {
+		"contact": "Contact",
+		"openingHours": "Opening Hours",
+		"specialty": "Specialties",
+		"insurers": "Insurance companies",
+		"noInsurers": "No Insurers",
+		"byAppointment": "By appointment",
+		"openNow": "Open now!",
+		"closed": "Currently closed",
+		"openByAppointment": "Open by appointment"
+	},
+	"Tabs": {
+		"anamnesis": "Anamnesis",
+		"info": "Info",
+		"search": "Search",
+		"doctors": "Doctors"
+	},
+	"pin": {
+		"noneProvided": "No PIN code was provided.",
+		"notValid": "The entered PIN code was not found.",
+		"success": "😀 The anamnesis was uploaded successfully."
+	},
+	"appTour": {
+		"walkThrough": {
+			"tag": "APP-TOUR",
+			"title": "Medical advice comfortably via App",
+			"bulletPoints": {
+				"1": "Video consultations with real doctors instantly",
+				"2": "Prescriptions and referrals",
+				"3": "Your personal health file for medical documents",
+				"4": "Medical doctors search"
+			},
+			"conclusion": "Take a short tour to explore all features and benefits."
+		},
+		"consultation": {
+			"title": "Consultation",
+			"description": "Confidential video calls with real doctors at the push of a button.",
+			"bulletPoints": {
+				"1": "Without appointment or waiting time",
+				"2": "No travel time",
+				"3": "Office hours currently: 9 a.m. to 5 p.m., Monday through Friday, including holidays"
+			}
+		},
+		"docs": {
+			"title": "Receive & Redeem Medical Docs",
+			"description": "After talking to one of our GPs get Prescriptions (redeemable at all Austrian pharmacies).",
+			"bulletPoints": {
+				"1": "Prescriptions (redeemable at all Austrian pharmacies)",
+				"2": "Referrals to specialists",
+				"3": "Lab assignments",
+				"4": "Sick notes"
+			},
+			"conclusion": "directly in your app."
+		},
+		"health": {
+			"title": "Personal Health Record",
+			"description": "Secure storage of medical documents.",
+			"bulletPoints": {
+				"1": "Your own digital vault for your medical data",
+				"2": "Safely upload and store your documents",
+				"3": "Documents cna be downloaded and printed",
+				"4": "You decide about sharing the documents with doctors"
+			}
+		},
+		"doctorSearch": {
+			"title": "Medical Doctor Search",
+			"bulletPoints": {
+				"1": "Access to all residing Austrian specialists",
+				"2": "Various search options such as specialisation or location",
+				"3": "Book an appointment and get to know new doctors",
+				"4": "Take the next step for your treatment"
+			}
+		},
+		"dataProtection": {
+			"title": "Data Protection",
+			"description": "The safety and confidentiality of your health data is pivotal to us!",
+			"bulletPoints": {
+				"1": "drd doctors online does not sell your data.",
+				"2": "Your health data are end-to-end encrypted",
+				"3": "Only you decide whom you share your health data with",
+				"4": "All our servers are located in the DACH region (Germany, Austria, Switzerland)"
+			}
+		}
+	},
+	"Settings": {
+		"title": "Settings",
+		"about": "About",
+		"faq": "FAQ",
+		"privacy": "Privacy Policy",
+		"export": "Export",
+		"feedback": "Feedback by Email"
+	},
+	"footerText": "In cooperation with Drei and Generali",
+	"delete": "Delete",
+	"deleteWarning": "Are you sure you want to delete this item?",
+	"none": "None",
+	"save": "Save",
+	"unknown": "unknown",
+	"noItems": "No items available",
+	"add": "Add",
+	"confirm": "Confirm",
+	"cancel": "Cancel",
+	"OK": "OK",
+	"enter": "Enter",
+	"uploading": "Uploading",
+	"toDrd": "Link to Platform",
+	"done": "Done",
+	"forward": "More",
+	"loading": "Loading..."
+}

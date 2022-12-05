@@ -1,0 +1,91 @@
+<ng-container *ngIf="{ profile: profile$ | async } as data">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/search"></ion-back-button>
+      </ion-buttons>
+      <ion-title *ngIf="!!data.profile">
+        {{ fullName(data.profile) }}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="ion-padding">
+    <div class="ion-text-center">
+      <ion-icon 
+        *ngIf="!data.profile?.doctor?.profileImage" 
+        name="person-circle-outline" class="avatar"></ion-icon>
+      <ion-img
+        *ngIf="data.profile?.doctor?.profileImage"
+        [src]="sanitizeImageUrl(data.profile.doctor.profileImage)"
+        class="profile-image"
+      ></ion-img>
+    </div>
+    <div *ngIf="data?.profile as profile; else loading">
+      <h1 class="title">
+        {{title(profile) + prefix(profile) + fullName(profile) + suffix(profile)}}
+
+      </h1>
+      <p>{{ formattedSpecialty(profile) }}</p>
+      <div class="institution" *ngIf="institutionPosition(profile)">
+        {{ institutionPosition(profile) }}
+      </div>
+      <h1 class="subsection">{{'ProfilePage.contact' | translate}}</h1>
+      <ion-grid>
+        <app-contact-card
+          iconName="location"
+          [linkAddress]="mapLink(profile)"
+          [displayText]="formattedAddress(profile)"
+        ></app-contact-card>
+        <app-contact-card *ngIf="!!profile.employer.phone"
+          iconName="call"
+          [linkAddress]="phoneLink(profile.employer.phone)"
+          [displayText]=" formattedPhone(profile.employer.phone)"
+        ></app-contact-card>
+        <app-contact-card *ngIf="!!profile.employer.email"
+          iconName="mail"
+          [linkAddress]="emailLink(profile)"
+          [displayText]="profile.employer.email"
+        ></app-contact-card>
+        <app-contact-card *ngIf="!!profile.employer.url"
+          iconName="globe"
+          [linkAddress]="profile.employer.url"
+          [displayText]="profile.employer.url"
+        ></app-contact-card>
+      </ion-grid>
+      <div class="open-container">
+        <app-capsule *ngIf="openStatus(profile) == 'none'"
+          [text]="'ProfilePage.openByAppointment' | translate"
+        ></app-capsule>
+        <app-capsule *ngIf="openStatus(profile) != 'none'"
+          [text]="'ProfilePage.' + (isOpen(profile) ? 'openNow' : 'closed') | translate"
+          [bgColor]="isOpen(profile) ? 'darkgreen' : '#eb445a'"
+        ></app-capsule>
+      </div>
+      <ng-container *ngIf="formattedSpecialties(profile)">
+        <h1 class="subsection">{{'ProfilePage.specialty' | translate}}</h1>
+        {{ formattedSpecialties(profile) }}
+      </ng-container>
+      <h1 class="subsection">{{'ProfilePage.insurers' | translate }}</h1>
+      <div>
+        {{ 
+          formattedInsurers(profile.employer.insurers) || 
+          ('ProfilePage.noInsurers' | translate )
+        }}
+      </div>
+      <h1 class="subsection">{{'ProfilePage.openingHours' | translate }}</h1>
+      <ion-grid *ngIf="openingHourData(profile); else byAppointment">
+        <ion-row *ngFor="let entry of openingHourData(profile)">
+          <ion-col size="2">{{ entry.day }} </ion-col>
+          <ion-col>{{ entry.time }} </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ng-template #byAppointment>
+        {{ 'ProfilePage.byAppointment' | translate}}
+      </ng-template>
+    </div>
+    <ng-template #loading>
+      {{ 'loading' | translate }}
+    </ng-template>
+  </ion-content>
+</ng-container>

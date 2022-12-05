@@ -1,0 +1,29 @@
+<ion-tabs #tabs class="tabs-icon-top"
+  (ionTabsWillChange)="onChange($event)"
+>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="info"
+      [class.tab-selected]="selectedTab.includes('info')"
+    >
+      <ion-icon name="information-circle"></ion-icon>
+      <ion-label>{{ 'Tabs.info' | translate }}</ion-label>
+    </ion-tab-button>
+    
+    <ion-tab-button tab="anamnesis">
+      <ion-icon name="medical"></ion-icon>
+      <ion-label>{{ 'Tabs.anamnesis' | translate }}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="search">
+      <ion-icon name="search"></ion-icon>
+      <ion-label>{{ 'Tabs.search' | translate }}</ion-label>
+    </ion-tab-button>
+    
+    <ion-tab-button tab="doctors">
+      <ion-icon style="padding-top:3px" src="/assets/icon/stethoscope.svg"></ion-icon>
+      <ion-label>{{ 'Tabs.doctors' | translate }}</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

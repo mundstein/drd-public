@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'SearchPage.title' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-spinner [hidden]="!searching" name="lines-small"></ion-spinner>
+      <ion-button (click)="showInfo = true">
+        <ion-icon 
+          name="information-circle-outline" 
+          color="primary" size="large"
+        >
+        </ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-searchbar 
+    [placeholder]="'SearchPage.search.placeholder' | translate"
+    (ionChange)="search()"
+    [(ngModel)]="term"
+    debounce="500"
+  ></ion-searchbar>
+<div *ngIf="searching" class="status">
+  <span class="searching">{{'SearchPage.search.searching' | translate}}</span>
+</div>
+<div *ngIf="!searching && !!currentResult && currentResult.count == 0" class="status">
+  <span>{{'SearchPage.search.noResults' | translate}}</span>
+</div>
+<div *ngIf="!!currentResult && currentResult.count != 0" class="status">
+  <ion-label translate class="searching" *ngIf="currentResult.count <=20"
+  [translateParams]="{count: currentResult.count}">
+    SearchPage.paging.entries
+  </ion-label>
+  <ion-label translate *ngIf="currentResult.count > 20"
+  [translateParams]="{count: currentResult.count, start: showing().start, end: showing().end}">
+    SearchPage.paging.showing
+  </ion-label>
+</div>
+<div>
+  <ion-list class="ion-no-padding">
+    <ng-container *ngFor="let item of profiles$ | async">
+      <app-profile-card [profile]="item"></app-profile-card>
+    </ng-container>
+  </ion-list>
+  <div *ngIf="currentResult?.next || currentResult?.previous" class="ion-text-center">
+    <ion-item lines="none">
+      <ion-button *ngIf="currentResult?.previous" fill="outline" (click)="prevPage()" slot="start">
+        Zurück
+      </ion-button>
+      <ion-button *ngIf="currentResult?.next" fill="outline" (click)="nextPage()" slot="end">
+        Nächste Seite
+      </ion-button>
+    </ion-item>
+  </div>
+</div>
+
+<ion-modal [isOpen]="showInfo"
+  initialBreakpoint="1"
+  (didDismiss)="showInfo = false"
+>
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>{{'SearchPage.info.title' | translate }}</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="showInfo = false">
+            <ion-icon name="close-outline" color="medium"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <div class="image-container">
+        <ion-img src="/assets/image/doctor-search.svg"></ion-img>
+      </div>
+      <p [innerHtml]="'SearchPage.info.intro' | translate"></p>
+      <p [innerHtml]="'SearchPage.info.searchTips' | translate"></p>
+      <p class="code">Zahn 1010</p>
+      <p [innerHtml]="'SearchPage.info.example' | translate" class="example"></p>
+      <p [innerHtml]="'SearchPage.info.legend.title' | translate"></p>
+      <ion-grid class="legend">
+        <ion-row>
+          <ion-col size="auto"><span class="dot open"></span></ion-col>
+          <ion-col>{{ 'SearchPage.info.legend.open' | translate }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="auto"><span class="dot closed"></span></ion-col>
+          <ion-col>{{ 'SearchPage.info.legend.closed' | translate }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="auto"><span class="dot none"></span></ion-col>
+          <ion-col>{{ 'SearchPage.info.legend.none' | translate }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+</ion-content>

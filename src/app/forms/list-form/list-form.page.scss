@@ -1,0 +1,45 @@
+.add-item {
+    color: var(--ion-color-primary);
+    font-weight: bold;
+    margin-top: 30px; 
+}
+
+.no-items {
+    color: gray; 
+    font-style: italic; 
+    font-size: smaller; 
+}
+
+.item-card {
+    width: 100%;
+    padding: 12px;
+}
+
+.medication-name {
+    font-weight:bold;
+}
+
+.med-row {
+    padding-bottom: 5px; 
+}
+
+.label {
+    font-style:normal;
+}
+
+.close-button {
+    position:absolute;
+    top: 5px;
+    right: 5px;
+    font-size:24px;
+    color: darkred;
+    opacity: 0.5;
+}
+
+.add-button {
+    margin-top: 16px;
+}
+
+.final-row {
+    margin-top: 30px;
+}

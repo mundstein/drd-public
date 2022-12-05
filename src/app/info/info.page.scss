@@ -1,0 +1,50 @@
+div.container {
+    padding: 30px;
+}
+
+.logo {
+    margin: 30px;
+    overflow: hidden;
+    max-width: 40%;
+    display: block;
+    margin: 0 auto;
+}
+
+h3 {
+    font-size: default;
+}
+
+.footer {
+    font-size: smaller;
+}
+.sponsor {
+    width: 20px;
+    height: 20px;
+    display:inline-block;
+    margin-top:10px;
+}
+
+.feature-text { 
+    color:var(--ion-color-primary);
+    font-weight: bold;
+}
+
+
+#spinner {
+    animation-name: spinner;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    transform-style: preserve-3d;
+    text-align: center;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotateX(0deg);
+    }
+
+    to {
+        transform: rotateX(-360deg);
+    }
+}
